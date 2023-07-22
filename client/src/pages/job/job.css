@@ -1,0 +1,62 @@
+.job-details{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.job-details h4{
+    margin-top: 3rem;
+    margin-bottom: 0;
+}
+.job-icon{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.flex{
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+.flex p{
+    color: #797373;
+}
+.skill-row{
+    display: flex;
+    flex-direction: row;
+}
+.fix-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    /* padding: 2px 3px;
+    height: 20px; */
+    background-color: #ebe2e2;
+    /* font-size: 20px; */
+}
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  background-color: #cac8c8; /* Light grey background color */
+  border-radius: 10px;
+  
+  /* Add some padding */
+}
+
+/* Style for the "Remove" icon */
+.skill-row span {
+ padding: 0px 2px; 
+  cursor: pointer;
+  color: #1a1818; /* Use your preferred color for the cross icon */
+}
+.skill{
+    /* background-color: #f0e9e9; */
+    color: #978f8f;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
