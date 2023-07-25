@@ -1,11 +1,17 @@
+// {
+//   display: flex;
+// }
 .login {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: nowrap;
+  background-image: url('../../../public/img/rename.jpg');
+  background-size:100vw 100vh;
+  // align-items: center;
+  // justify-content: center;
 
   form {
-    width: 360px;
-    padding: 100px 0px;
+    width: 450px;
+    padding: 100px 3rem;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -41,4 +47,12 @@
       font-size: 12px;
     }
   }
+}
+// .image{
+//   display: inline;
+// }
+.image img{
+  display: flex;
+  width: 50vw;
+  height: 80vh;
 }

@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className="footer">
       <div className="container">
-        <div className="top">
+        {/* <div className="top">
           <div className="item">
             <h2>Categories</h2>
             <span>Graphics & Design</span>
@@ -64,14 +64,14 @@ function Footer() {
             <span>Learn</span>
             <span>Working Not Working</span>
           </div>
-        </div>
+        </div> */}
         <hr />
         <div className="bottom">
           <div className="left">
-            <h2>fiverr</h2>
-            <span>© Fiverr International Ltd. 2023</span>
+            <h2>WorkNook</h2>
+            <span>© WorkNook International Ltd. 2023</span>
           </div>
-          <div className="right">
+          {/* <div className="right">
             <div className="social">
               <img src="/img/twitter.png" alt="" />
               <img src="/img/facebook.png" alt="" />
@@ -88,7 +88,7 @@ function Footer() {
               <span>USD</span>
             </div>
             <img src="/img/accessibility.png" alt="" />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

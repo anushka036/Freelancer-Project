@@ -39,12 +39,12 @@ function Navbar() {
       <div className="container">
         <div className="logo">
           <Link className="link" to="/">
-            <span className="text">fiverr</span>
+            <span className="text">WorkNook</span>
           </Link>
-          <span className="dot">.</span>
+          {/* <span className="dot">.</span> */}
         </div>
         <div className="links">
-          <span>Fiverr Business</span>
+          {/* <span>Fiverr Business</span> */}
           <span>Explore</span>
           <span>English</span>
           {!currentUser?.isSeller && <span>Become a Seller</span>}
@@ -78,7 +78,9 @@ function Navbar() {
             </div>
           ) : (
             <>
-              <Link to="/login" className="link">Sign in</Link>
+              <Link to="/login" className="link">
+                Sign in
+              </Link>
               <Link className="link" to="/register">
                 <button>Join</button>
               </Link>
@@ -86,7 +88,7 @@ function Navbar() {
           )}
         </div>
       </div>
-      {(active || pathname !== "/") && (
+      {/* {(active || pathname !== "/") && (
         <>
           <hr />
           <div className="menu">
@@ -120,7 +122,7 @@ function Navbar() {
           </div>
           <hr />
         </>
-      )}
+      )} */}
     </div>
   );
 }

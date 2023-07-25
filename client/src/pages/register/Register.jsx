@@ -3,6 +3,9 @@ import upload from "../../utils/upload";
 import "./Register.scss";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
+import Select from "react-select";
+import countryList from "react-select-country-list";
+import CountrySelector from "./CountrySelect";
 
 function Register() {
   const [file, setFile] = useState(null);
@@ -38,7 +41,7 @@ function Register() {
         ...user,
         img: url,
       });
-      navigate("/")
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -67,12 +70,13 @@ function Register() {
           <label htmlFor="">Profile Picture</label>
           <input type="file" onChange={(e) => setFile(e.target.files[0])} />
           <label htmlFor="">Country</label>
-          <input
+          <CountrySelector onChange={handleChange} />
+          {/* <input
             name="country"
             type="text"
             placeholder="Usa"
             onChange={handleChange}
-          />
+          /> */}
           <button type="submit">Register</button>
         </div>
         <div className="right">
