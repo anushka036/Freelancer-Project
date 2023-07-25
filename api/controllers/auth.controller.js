@@ -2,17 +2,29 @@ import User from "../models/user.model.js";
 import createError from "../utils/createError.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import fs from "fs";
+import userModel from "../models/user.model.js";
+import { v2 as cloudinary } from "cloudinary";
 
+cloudinary.config({
+  cloud_name: "dkaazsy5c",
+  api_key: "585947666282111",
+  api_secret: "XMgwmPneE_NAcSyRlXxwQZgzcW4",
+});
 export const register = async (req, res, next) => {
   try {
     const hash = bcrypt.hashSync(req.body.password, 5);
-    const newUser = new User({
-      ...req.body,
-      password: hash,
+    const file = req.files.photo;
+    cloudinary.uploader.upload(file.tempFilePath, (err, result) => {
+      console.log(result);
+      const newUser = new User({
+        ...req.body,
+        photo: result.url,
+        password: hash,
+      });
+      newUser.save();
+      res.status(201).send("User has been created.");
     });
-
-    await newUser.save();
-    res.status(201).send("User has been created.");
   } catch (err) {
     next(err);
   }
@@ -55,4 +67,21 @@ export const logout = async (req, res) => {
     })
     .status(200)
     .send("User has been logged out.");
+};
+
+export const userPhoto = async (req, res) => {
+  try {
+    const user = await userModel.findById(req.params.pid).select("photo");
+    if (user.photo.data) {
+      res.set("Content-type", user.photo.contentType);
+      return res.status(200).send(user.photo.data);
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error in user photo",
+      error: error.message,
+    });
+  }
 };
