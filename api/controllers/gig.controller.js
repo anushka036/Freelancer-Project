@@ -1,18 +1,29 @@
 import Gig from "../models/gig.model.js";
 import createError from "../utils/createError.js";
+import { v2 as cloudinary } from "cloudinary";
+
+cloudinary.config({
+  cloud_name: "dkaazsy5c",
+  api_key: "585947666282111",
+  api_secret: "XMgwmPneE_NAcSyRlXxwQZgzcW4",
+});
 
 export const createGig = async (req, res, next) => {
   if (!req.isSeller)
     return next(createError(403, "Only sellers can create a gig!"));
 
-  const newGig = new Gig({
-    userId: req.userId,
-    ...req.body,
-  });
-
   try {
-    const savedGig = await newGig.save();
-    res.status(201).json(savedGig);
+    const file = req.files.photo;
+    cloudinary.uploader.upload(file.tempFilePath, (err, result) => {
+      console.log(result);
+      const newGig = new Gig({
+        userId: req.userId,
+        ...req.body,
+      });
+
+      const savedGig = newGig.save();
+      res.status(201).json(savedGig);
+    });
   } catch (err) {
     next(err);
   }
